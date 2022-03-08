@@ -17,6 +17,7 @@ const OrderForm = ({updateOrders}) => {
     }
     addOrder(newOrder)
     .then(data => {
+      console.log(data)
       updateOrders()
       clearInputs()
     }
@@ -36,8 +37,6 @@ const OrderForm = ({updateOrders}) => {
 
   const updateIngredients = (event) => {
     event.preventDefault()
-    console.log(ingredients)
-    console.log(event.target.value)
     setIngredients([...ingredients, event.target.value])
   }
 
@@ -57,6 +56,7 @@ return (
   <>
     <form>
       <input
+        className='name-input'
         type='text'
         placeholder='Name'
         onChange={event => {updateName(event)}}
@@ -66,7 +66,9 @@ return (
         </div>
         {ingredients && displayOrder()}
         {!ingredients && <p>Order: Nothing selected</p>}
-      <button onClick={e => handleSubmit(e)}>
+      <button
+      className='order-button'
+      onClick={e => handleSubmit(e)}>
         Submit Order
       </button>
     </form>
