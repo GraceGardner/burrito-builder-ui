@@ -1,0 +1,9 @@
+.options-container {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.opt-button {
+  width: 20vw;
+}
